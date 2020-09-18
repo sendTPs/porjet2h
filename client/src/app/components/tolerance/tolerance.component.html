@@ -1,0 +1,7 @@
+<span>Tolerance couleur :</span>
+<input #slider (mousemove)="slideTolerance()" step="1" class="mySlider" type="range" value={{tolerance}} min="0"
+    max="100" />
+<br>
+<input #number (change)="preciseTolerance()" (blur)="checkValue()" (click)="disabledKeyboard()" step="1"
+    class="myNumbers" type="number" value={{tolerance}} min="0" max="100" />
+<p>en %</p>

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Configuration du nouveau dessin</h1>
+
+<div mat-dialog-content id="uniqueModal">
+  <div (window:resize)="onResize($event)">
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.width" placeholder="Largeur">
+      <span matSuffix>pixels</span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.height" placeholder="Hauteur">
+      <span matSuffix>pixels</span>
+    </mat-form-field>
+  </div>
+  <p mat-dialog-title>Couleur d'arrriere-plan (Blanc par defaut)</p>
+  <div>
+    <!--  Color picker -->
+    <div>
+      <app-color-picker [colorChooserOnly]="false"></app-color-picker>
+    </div>
+    <br>
+    <input #choiceHexCode type="radio" id="colorChoice3" name="colorChoice" value="choice3">
+    <label for="colorChoice3">Code hexadecimal
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.hexCode" placeholder="code hexadecimal">
+      </mat-form-field>
+    </label>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Retour</button>
+  <button mat-button (click)="onClick()"> Confirmer</button>
+</div>

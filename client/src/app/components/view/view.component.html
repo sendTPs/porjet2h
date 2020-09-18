@@ -1,0 +1,299 @@
+<div id="wrapper">
+
+  <div id="page-content-wrapper">
+    <div class="sidebar">
+      <div id="topBtn">
+
+        <button [disabled]="this.commandManager.commandDone.length === 0" class="btnTools" mat-mini-fab [title]="'Undo'"
+          (mousedown)="undoCommand()">
+          <mat-icon>undo</mat-icon>
+        </button>
+
+        <button [disabled]="this.commandManager.commandUndone.length === 0" class="btnTools" mat-mini-fab
+          [title]="'Redo'" (mousedown)="redoCommand()">
+          <mat-icon>redo</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'selection' }" class="btnTools"
+          mat-mini-fab [title]="'Sélection'" (click)="activateTool(SELECT_SHORTCUT_EVENT)"
+          (mousedown)="toggle('selectionBar')">
+          <mat-icon>mouse</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'eraser' }"  class="btnTools" mat-mini-fab
+          [title]="'Efface'" (click)="activateTool(ERASER_SHORTCUT_EVENT)" (mousedown)="toggle('eraserBar')">
+          <mat-icon>kitchen</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'pencil' }" class="btnTools" mat-mini-fab
+          [title]="'Crayon'" (click)="activateTool(PENCIL_SHORTCUT_EVENT)" (mousedown)="toggle('pencilBar')">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'line' }" class="btnTools" mat-mini-fab
+          [title]="'Ligne'" (click)="activateTool(LINE_SHORTCUT_EVENT)" (mousedown)="toggle('lineBar')">
+          <mat-icon>timeline</mat-icon>
+        </button>
+
+        <!-- <button [ngClass]="{'colored': this.tool.getToolActivateToString() === '' }" class="btnTools" mat-mini-fab
+          [title]="''" (click)="activateTool(BRUSH_SHORTCUT_EVENT)" (mousedown)="toggle('xx')">
+          <mat-icon></mat-icon>
+        </button> -->
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'rectangle' }" class="btnTools"
+          mat-mini-fab [title]="'Formes'" (click)="activateTool(RECTANGLE_SHORTCUT_EVENT)"
+          (mousedown)="toggle('rectangleBar')">
+          <mat-icon>category</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'spray' }" class="btnTools" mat-mini-fab
+          [title]="'Aérosol'" (click)="activateTool(SPRAY_SHORTCUT_EVENT)" (mousedown)="toggle('sprayBar')">
+          <mat-icon>blur_on</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'pipette' }" class="btnTools"
+          mat-mini-fab [title]="'Pipette'" (click)="activateTool(PIPETTE_SHORTCUT_EVENT)"
+          (mousedown)="toggle('pipetteBar')">
+          <mat-icon>colorize</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.toggledBars.get('colorBar')}" class="btnTools" mat-mini-fab
+          [title]="'Couleur'" (mousedown)="toggle('colorBar')" style="mix-blend-mode: luminosity;">
+          <mat-icon>color_lens</mat-icon>
+        </button>
+
+        <button [ngClass]="{'colored': this.tool.getToolActivateToString() === 'grille' }" class="btnTools" mat-mini-fab
+          [title]="'Grille'" (click)="activateTool(GRILLE_SHORTCUT_EVENT)" (mousedown)="toggle('grilleBar')">
+          <mat-icon>grid_on</mat-icon>
+        </button>
+
+        <button class="btnConfig" mat-mini-fab [title]="'Guide'" (click)="openUserManual()">
+          <mat-icon>help_outline</mat-icon>
+        </button>
+
+      </div>
+
+      <div id="bottomBtn">
+        <button class="btnConfig" mat-mini-fab [title]="'Nouveau Dessin'" (click)="openWarningDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button class="btnConfig" mat-mini-fab [title]="'Sauvegarder'" (click)="openSavingDialog()">
+          <mat-icon>save</mat-icon>
+        </button>
+
+        <button class="btnConfig" mat-mini-fab [title]="'Envoyer'" (mousedown)="toggle('exportBar')">
+          <mat-icon>send</mat-icon>
+        </button>
+
+        <button class="btnConfig" mat-mini-fab [title]="'Quitter'" (click)="quit()" (dblclick)="quit()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Attributes Panel -->
+
+  <div #sidebarSelection id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("selectionBar") !== undefined) && (this.toggledBars.get("selectionBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Sélection
+      </li>
+      <li>
+        <button  [disabled]="this.clipboard.selectionElement.elementSelected.length <= 0" class='choicePencil'
+          (click)=copySelection()> COPY </button>
+        <button  [disabled]="this.clipboard.selectionElement.elementSelected.length <= 0" class='choicePencil'
+          (click)=pasteSelection()> PASTE </button>
+        <button [disabled]="this.clipboard.selectionElement.elementSelected.length <= 0" class='choicePencil'
+          (click)=duplicateSelection()> DUPLICATE </button>
+        <button  [disabled]="this.clipboard.selectionElement.elementSelected.length <= 0" class='choicePencil'
+          (click)=cutSelection()> CUT </button>
+        <button  [disabled]="this.clipboard.selectionElement.elementSelected.length <= 0" class='choicePencil'
+          (click)=deleteSelection()> DELETE </button>
+      </li>
+    </div>
+  </div>
+
+
+  <div #sidebarPencil id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("pencilBar") !== undefined) && (this.toggledBars.get("pencilBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Crayon
+      </li>
+      <li>
+        <app-color-show></app-color-show>
+      </li>
+      <li>
+        Type de Crayon / Pinceau
+        <button #b0 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'normal'}" title='Normal' id="no0"
+          class='choicePencil' (click)=optionBrush(1)></button>
+        <button #b1 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'blur'}" title='Blur' id="no1"
+          class='choicePencil' (click)=optionBrush(2)></button>
+        <button #b2 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'trouble'}" title='Trouble' id="no2"
+          class='choicePencil' (click)=optionBrush(3)></button>
+        <button #b3 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'outset'}" title='Outset' id="no3"
+          class='choicePencil' (click)=optionBrush(4)></button>
+        <button #b4 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'shadow'}" title='Shadow' id="no4"
+          class='choicePencil' (click)=optionBrush(5)></button>
+        <button #b5 [ngClass]="{'coloredB': this.type.activatedTypeBrush === 'round'}" title='Round' id="no5"
+          class='choicePencil' (click)=optionBrush(6)></button>
+      </li>
+      <br>
+      <li>
+        <app-width></app-width>
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarLine id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("lineBar") !== undefined) && (this.toggledBars.get("lineBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Ligne
+      </li>
+      <li>
+        <app-color-show></app-color-show>
+      </li>
+      <li>
+        <app-width></app-width>
+      </li>
+      <li>
+        <app-jonction></app-jonction>
+      </li>
+      <li>
+        Couleur:
+        <br />
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarRectangle id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("rectangleBar") !== undefined) && (this.toggledBars.get("rectangleBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Formes
+      </li>
+      <li>
+        <app-color-show></app-color-show>
+      </li>
+      <li>
+        <button #b0 [ngClass]="{'colored': this.tool.tool === RECTANGLE}" id="no11" class='choicePencil'
+          (click)=optionPolygon(4) title="rectangle"> </button>
+        <button #b1 [ngClass]="{'colored': this.tool.tool === ELLIPSE}" id="no12" class='choicePencil'
+          (click)=optionPolygon(5) title="ellipse"> </button>
+        <button #b1 [ngClass]="{'colored': this.tool.tool === POLYGON}" id="no13" class='choicePencil'
+          (click)=optionPolygon(6) title="polygone"> </button>
+      </li>
+      <li>
+        <app-width></app-width>
+      </li>
+      <li *ngIf="this.tool.tool === '3000'">
+        <app-border></app-border>
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarCouleur id="sidebar-wrapper" style=' display:inline-block;'
+    *ngIf='(this.toggledBars.get("colorBar") !== undefined) && (this.toggledBars.get("colorBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Couleur
+      </li>
+      <li>
+        <app-color-picker [colorChooserOnly]="true"></app-color-picker>
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarSpray id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("sprayBar") !== undefined) && (this.toggledBars.get("sprayBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Aérosol
+      </li>
+      <li>
+        <app-color-show></app-color-show>
+      </li>
+      <li>
+        <app-width></app-width>
+      </li>
+      <li>
+        <app-spray-emissions></app-spray-emissions>
+      </li>
+    </div>
+  </div>
+
+
+  <div #sidebarPipette id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("pipetteBar") !== undefined) && (this.toggledBars.get("pipetteBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Outil Couleur
+      </li>
+
+      <button #b0 [ngClass]="{'colored': this.tool.tool === PIPETTE}" id="no21" class='choicePencil'
+        (click)=optionColor(7)> PIPETTE </button>
+      <button #b1 [ngClass]="{'colored': this.tool.tool === APPLICATOR}" id="no22" class='choicePencil'
+        (click)=optionColor(8)> APPLICATEUR DE COULEUR </button>
+      <button #b2 [ngClass]="{'colored': this.tool.tool === BUCKET}" id="no23" class='choicePencil'
+        (click)=optionColor(9)> SCEAU DE PEINTURE </button>
+
+      <p>Couleur principale: </p>
+      <div class="color-overview" [ngStyle]="{'background-color': this.pipette.color.prime || 'white'}"></div>
+      <p>Couleur secondaire: </p>
+      <div class="color-overview" [ngStyle]="{'background-color': this.pipette.color.second || 'white'}"></div>
+
+      <li *ngIf="this.tool.tool === 'b000'">
+        <app-tolerance></app-tolerance>
+      </li>
+    </div>
+
+  </div>
+
+  <div #sidebarGrille id="sidebar-wrapper" style='display:inline-block; overflow-y: scroll'
+    *ngIf='(this.toggledBars.get("grilleBar") !== undefined) && (this.toggledBars.get("grilleBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Grille
+      </li>
+      <li>
+        <app-grille></app-grille>
+      </li>
+      <li>
+        <app-opacity></app-opacity>
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarSelection id="sidebar-wrapper" style='display:inline-block'
+    *ngIf='(this.toggledBars.get("eraserBar") !== undefined) && (this.toggledBars.get("eraserBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Efface
+      </li>
+      <li>
+        <app-width></app-width>
+      </li>
+    </div>
+  </div>
+
+  <div #sidebarExport id="sidebar-wrapper" style='display:inline-block'
+    *ngIf='(this.toggledBars.get("exportBar") !== undefined) && (this.toggledBars.get("exportBar"))'>
+    <div class="toolbar">
+      <li class="main">
+        Exporter
+      </li>
+      <li>
+        <app-exportation></app-exportation>
+      </li>
+    </div>
+  </div>
+
+</div>
+
+<app-workspace [ngClass]="{'toggled': show }"></app-workspace>

@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceRoot": "app",
+        "sourceMap": true,
+        /* "baseUrl": "/",
+        "paths": {
+            "@app/*": [
+                "app/*"
+            ],
+            "@test/*": [
+                "test/*"
+            ],
+            "@controllers/*": [
+                "app/controllers/*"
+            ],
+            "@interfaces/*": [
+                "app/interfaces/*"
+            ],
+            "@services/*": [
+                "app/services/*"
+            ],
+        }, */
+        "outDir": "out",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "strictNullChecks": true
+    }
+}

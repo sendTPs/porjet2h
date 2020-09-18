@@ -1,0 +1,11 @@
+<span>Jonction :</span>
+
+<input #number (blur)="checkValue()" (change)="preciseWidth()" (click)="disabledKeyboard()" step="2" class="myNumbers"
+    type="number" value={{width}} min="0" max="60" />
+
+<button #button class="btnTools" (click)="jonctionToggle()">
+    <mat-icon>linear_scale</mat-icon>
+</button>
+<input #slider (mouseleave)="checkValue()" (mousemove)="slideWidth()" step="2" class="mySlider" type="range"
+    value={{width}} min="0" max="60" />
+<p>en pixel</p>

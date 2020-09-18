@@ -1,0 +1,82 @@
+p {
+  text-align: right;
+  font-size: 0.75em;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 5%;
+}
+
+span{
+  vertical-align: baseline;
+  font-size: 1.5em;
+  margin-right: 30px;
+}
+
+/********   Pour le INPUT range   ********/
+
+.slider:hover {
+    opacity: 1;
+  }
+
+.mySlider{//::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border-radius: 10px;
+    border: solid darkorange;
+    margin-left: 5%;
+    width: 150px;
+    height: 10px;
+    background: #606060;
+
+}
+
+.mySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-radius: 10px;
+    appearance: none;
+    width: 10px;;
+    height: 35px;
+    background: white;
+    cursor: pointer;
+    border: outset 2px;
+}
+
+.mySlider::-webkit-slider-thumb:hover {
+    background: lightgrey
+}
+
+/********   Pour le INPUT number   ********/
+
+.myNumbers{
+    border-radius: 10px;
+    color:white;
+    border: darkorange solid 5px;
+    background-color: #606060;
+    margin-left: 5%;
+    padding-left: 15px;
+    font-size: 1.8em;
+    text-align: center;
+    width: 135px;
+    height: 50px;
+}
+.myNumbers:hover::-webkit-inner-spin-button {
+    //-webkit-appearance:none;
+    opacity:0.3;
+  //  width: 50em;
+}
+
+.myNumbers::-webkit-inner-spin-button:hover {
+    //-webkit-appearance:none;
+    opacity:1;
+  //  width: 50em;
+}
+
+.btnTools {
+  background-color: darkgrey;
+  border: outset lightgrey 5px;
+  color: white;
+  margin-top: 5px;
+  height:45px;
+  width: 45px;
+  cursor: pointer;
+  border-radius: 10px;
+}

@@ -1,0 +1,46 @@
+.wsSVGClass {
+    height: 100%;
+    width: 100%;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+div {
+    margin-left: 0px;
+}
+
+.noCursor {
+    height: 100%;
+    width: 100%;
+    margin-left: 0px;
+    padding: 0px;
+    cursor: none;
+}
+
+#b {
+    font-size: 3em;
+    color: white;
+    margin-left: 0px;
+    height: 100px;
+    width: 100%;
+}
+
+.workspace {
+    z-index: 1;
+}
+
+#blur {
+    width: 100px;
+    height: 100px;
+}
+
+.img {
+    display: none;
+    height: 100%;
+    width : 100%;
+}
+.canvas{
+    display: none;
+    height: 100%;
+    width : 100%;
+}

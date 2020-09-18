@@ -1,0 +1,82 @@
+<h2 class="dialogTitle">Sauvegarde du dessin</h2>
+
+<mat-dialog-content id="savingDialogContent">
+
+    <h4 mat-dialog-title class="informationsTitle">Informations</h4>
+
+    <form [formGroup]="savingForm" (ngSubmit)="onSave()">
+
+        <div class="drawingNameDiv">
+            <mat-form-field appearance="standard">
+
+                <mat-label for="nameInput">Nommez votre dessin</mat-label>
+
+                <input matInput formControlName="nameInput" id="nameInput" type="text" placeholder="Nom" required
+                    size="30" minlength="3" maxlength="20">
+
+                <mat-icon matSuffix>create</mat-icon>
+                <mat-hint>* Obligatoire - 3 lettres min, 20 max</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <!-- <svg style="border:1px solid black" width="300px" height="300px" [attr.viewBox]="dimension"
+            [style.background]="backgroundColor" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            [attr.filter]="filter.value">
+            <g #capture> </g>
+        </svg> -->
+
+        <div class="drawingTagsTitleAndButton">
+            <h4 mat-dialog-title class="tagsTitle">Étiquettes</h4>
+        </div>
+
+        <p class="tagDefinition">-- Étiquette: mot-clé représentant le contenu du dessin</p>
+
+        <div class="drawingTagsList">
+            <mat-form-field class="chip-list">
+
+                <mat-chip-list #chipList aria-label="Tag selection">
+
+                    <mat-chip *ngFor="let tag of getTagsControls(); let i = index" #chips [selectable]="selectable"
+                        [removable]="removable" (removed)="removeTagFromChipList(i)">
+                        {{tag.value}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+
+                    <input matChipInput formControlName="tagInput" id="tagInput"
+                        placeholder="(Optionnel) Associez une ou plusieurs étiquettes au dessin" minlength="3"
+                        maxlength="20" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addTagsToChipList($event)">
+
+                    <mat-icon matSuffix>label</mat-icon>
+
+                </mat-chip-list>
+
+                <mat-hint>
+                    3 lettres min - pas de chiffres - pas de caractères spéciaux (!?@#$~%&+=*_\|/>,.:;") - pas de
+                    caractères accentués
+                    <br />
+                    Appuyez sur 'Entrer' ou 'Tab' pour ajouter une étiquette.
+                </mat-hint>
+
+            </mat-form-field>
+
+        </div>
+
+        <mat-dialog-actions class="savingDialogButtons">
+            <button mat-button cdkFocusInitial mat-dialog-close type="reset" id="cancelButton"
+                (click)="onCancel()">Annuler</button>
+
+            <!-- Le bouton de sauvegarde doit être non disponible lorsque le dessin est en pleine sauvegarde, genre afficher un circleProgress -->
+            <button mat-button type="submit" id="savingButton" [disabled]="!savingForm.valid"
+                (click)="onSave()">Sauvegarder</button>
+
+            <!-- Ensuite la dialog se ferme toute seule et affiche une notification que le dessin a bien été sauvegardé avec le subscribe dans le fichier .ts -->
+        </mat-dialog-actions>
+
+        <!-- PC : utile pour connaitre le statut du formulaire -->
+        <!-- <p class="formDiagnostic">
+            Form Status: {{ savingForm.status + savingForm.value}}
+        </p> -->
+    </form>
+
+</mat-dialog-content>

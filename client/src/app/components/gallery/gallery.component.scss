@@ -1,0 +1,155 @@
+#title{
+    text-align: center;
+}
+// .container{
+//     background-color: black;
+//     color: white;
+//     // display: block;
+//     // height: 100%;
+//     // width: 100%;
+// }
+
+#filtersSelected{
+  display: inline-block;
+  font-size: medium ;
+  color: black;
+  padding: 10px;
+  background-color:darkorange;
+  line-height: 1em;
+  position: relative;
+  margin-right: 15px;
+  margin-top: 5px;
+  border-radius: 4px
+}
+
+#displayedDrawings{
+    font-size: medium ;
+    font-weight: bold;
+    color: black;
+    padding: 15px;
+    background-color:darkorange;
+    line-height: 1em;
+    position: relative;
+    margin-right: 15px;
+    margin-top: 5px;
+    border-radius: 4px
+}
+
+.tags {
+    margin: 10px;
+    list-style-type: none;
+    padding: 0;
+    width: 10px;
+}
+
+#drawingsTagsTitle{
+    font-size: small;
+    font-weight: lighter;
+}
+#drawingsTags{
+     font-size: smaller;
+     display: inline;
+}
+
+
+#reset{
+    margin-top: auto;
+    // border-radius: 4px;
+    // height: 40px;
+    text-transform: bold;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    margin-left: 10px;
+    font-weight: bold;
+    //height: 40px;
+    width: 40%;
+    cursor: pointer;
+}
+#serverDrawings{
+    text-align: center;
+}
+
+// .selectOptions{
+//     display: inline-table ;
+// }
+
+.filter{
+    float:left;
+    //display: inline;
+    height: 100%;
+    width: 350px;
+}
+.drawings{
+    ///float: right;
+    float: inline-end;
+   // align-items: center;
+    margin-left: 300px;
+    // width: 200px;
+}
+
+
+
+.buttons{
+    position: relative;
+    margin-top: 200px;
+    align-content: center;
+    text-align: center;
+
+}
+
+
+.button1{
+    background-color: black; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    //text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+.button2{
+    background-color:black; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+   // text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    margin-left: 50px;
+
+}
+
+.dropper {
+    transition: all 200ms linear;
+}
+
+.button1:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+    cursor: pointer; 
+}
+.button2:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+    cursor: pointer; 
+}
+
+.draggable {
+    //display: inline-block;
+    //display: block;
+    display: grid;
+    text-align: center;
+    cursor: move; // ou pointer
+    transition: all 200ms linear;
+    user-select: none;
+  
+}
+.drawingToUse{
+    font-weight: bold;
+    color:darkorange;
+}

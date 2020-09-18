@@ -1,0 +1,313 @@
+/*********************Sidebar*********************/
+
+.sidebar {
+  margin-top: 0px;
+  text-align: center;
+  height: 100%;
+  width: 90px;
+  padding-top: 25px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.sidebar:active {
+  cursor: no-drop;
+}
+
+#topBtn {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  margin-top: -20px;
+}
+
+#bottomBtn {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  margin-top: 525px;
+}
+
+.color-overview{
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+  border: 1px solid rgb(220, 220, 220);
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+
+/****************Button***************/
+
+[id ^=no] {
+  background-size: cover;
+  height: 65px;
+  width: 65px;
+  margin-left: 2px;
+}
+
+[id ^=no]:hover {
+  border: black 5px solid;
+  margin-bottom: 10px;
+}
+
+.btnTools.colored {
+  background-color: darkorange;
+}
+
+#no0 {
+  background-image: url("../../../assets/brush0.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no1 {
+  background-image: url("../../../assets/brush1.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no2 {
+  background-image: url("../../../assets/brush2.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no3 {
+  background-image: url("../../../assets/brush3.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no4 {
+  background-image: url("../../../assets/brush4.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no5 {
+  background-image: url("../../../assets/brush5.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 30px;
+}
+
+#no11 {
+  background-image: url("../../../assets/rectangle.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 90px;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+#no12{
+  background-image: url("../../../assets/ellipse.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 90px;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+#no13{
+  background-image: url("../../../assets/triangle.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 90px;
+  margin-right: 4px;
+  margin-left: 4px;
+  
+}
+
+button {
+  height: 45px;
+  width: 45px;
+}
+
+.btnTools {
+  background-color: rgba(78, 78, 78, 0.315);
+  color: white;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+button:disabled{
+  border: solid black;
+  background-color: rgba(78, 78, 78, 0.315);
+  margin-top: 3px;
+  cursor: no-drop;
+}
+
+button:disabled mat-icon{
+  color: grey;
+}
+
+button:disabled:hover{
+  border: solid black;
+}
+
+.choicePencil {
+  background-size: cover;
+  background-position-y: -10px;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0.808);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  height: 50px;
+  width: 100%;
+  background-color: grey;
+  margin-top: 3px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.choicePencil.colored {
+  background-color: darkorange;
+}
+
+.choicePencil.coloredB {
+  border: darkorange 5px solid;
+  margin-bottom: 10px;
+}
+
+.btnSelected {
+  border: solid pink;
+  background-color: rgba(126, 126, 126, 0.849);
+}
+
+button:hover {
+  border: solid white;
+  background-color: rgba(126, 126, 126, 0.849);
+}
+
+.btnConfig {
+  margin-top: 3px;
+  height: 42px;
+  width: 42px;
+  background-color: rgba(78, 78, 78, 0.315);
+  color: white;
+  cursor: pointer;
+}
+
+.mat-fab .mat-button-wrapper {
+  padding: 0;
+  display: inline-block;
+  line-height: 24px;
+}
+
+/*****************Show Attributes Pannel*******************/
+#wrapper {
+  width: 70px;
+  display: inline-block;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  box-sizing: border-box;
+  padding: 10px;
+  top: 0;
+  width: 355px;
+  height: 100%;
+  margin-left: 90px;
+  background: #333;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+/*******************Attributes Pannel Style*****************/
+
+.toolbar {
+  color: #ccc;
+  font-size: 1.2em;
+  //position: absolute;
+  width: 100%; //selection indication
+  list-style: none;
+  display: inline-block;
+}
+
+.toolbar .main {
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2.5em;
+  color: white;
+  height: 75px;
+  border: white 5px ridge;
+  background: #444;
+}
+
+.toolbar li {
+  line-height: 40px;
+}
+
+.toolbar li:hover {
+  color: #fff;
+  background: #444;
+}
+
+/*********************Drawing limits**********************/
+
+
+app-workspace {
+  margin-left: 25px;
+  margin-top: 5px;
+  width: 0%; ///---- pour enlever/mettre le dessin par defaut le mettre a 0% ou (70%)
+
+  height: 80%;
+  display: inline-block;
+}
+
+app-workspace.toggled{
+  margin-left: 380px; // 380 ou 450
+  margin-top: 5px;  // 5 ou -15
+}
+
+/*********************color panel**********************/
+#color-panel {
+  z-index: 1000;
+  position: fixed;
+  width: 25%;
+  top: 0;
+  height: 100%;
+  margin-left: 130px; //make sidebar right beside attribute pannel
+  overflow-y: auto;
+  background: #34383e;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}

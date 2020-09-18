@@ -1,0 +1,87 @@
+<div id="interface">
+
+    <mat-sidenav-container class="container">
+        <h1>Guide d'utilisation</h1>
+        <mat-sidenav id="categoriesPart" role="directory " mode="side" opened>
+            <p>Catégories</p>
+
+            <mat-button-toggle-group id="toggleButton" #group1="matButtonToggleGroup" (click)="change()" vertical>
+
+                <mat-button-toggle value='{{welcome}}' (click)="showWelcomeMsg()"> Bienvenue </mat-button-toggle>
+
+                <mat-accordion #expansionPanels id="expansionPanels">
+                    <mat-expansion-panel #panel1>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Sections
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <li id="sections" *ngFor="let section of sections ;  index as i ;"
+                            (click)="findIndex(i,'sections' )">
+                            <mat-button-toggle value='{{section.description}}'> {{section.name}} </mat-button-toggle>
+                        </li>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel #panel2>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Outils
+                            </mat-panel-title>
+
+                        </mat-expansion-panel-header>
+
+                        <li id="tools" *ngFor="let tool of tools ; index as i;" (click)="findIndex(i,'tools')">
+                            <mat-button-toggle value='{{tool.description}}'> {{tool.name}}</mat-button-toggle>
+                        </li>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel #panel3>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Formes
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <li id="shapes" *ngFor="let shape of shapes;index as i ; " (click)="findIndex(i,'shapes')">
+                            <mat-button-toggle value='{{shape.description}}'> {{shape.name}} </mat-button-toggle>
+                        </li>
+                    </mat-expansion-panel>
+
+                    <button id="button" (click)="onClick()" mat-raised-button>Retour</button>
+                </mat-accordion>
+            </mat-button-toggle-group>
+        </mat-sidenav>
+
+        <div id="descriptionPart"> <br><br>
+            <cdk-virtual-scroll-viewport itemSize="3" id="information">
+
+                <div *ngIf="navigateButton && sectionsSelected">
+                    <!-- <div>{{sections[index].name}}</div><br>-->
+                    {{sections[index].description}}
+                </div>
+
+                <div *ngIf="navigateButton && toolsSelected">
+                    {{tools[index].description}}
+                </div>
+
+                <div *ngIf="navigateButton && shapesSelected">
+                    {{shapes[index].description}}
+                </div>
+
+                <div *ngIf="toogleButtonSelected || welcomeSelected ">{{group1.value}}</div>
+
+            </cdk-virtual-scroll-viewport>
+
+            <mat-button-toggle-group #group2="matButtonToggleGroup">
+                <button *ngIf="!this.first" id="previous" (click)="previous()">
+                    Précédent
+                </button>
+
+                <button *ngIf="!this.last" id="next" (click)="next()">
+                    Suivant
+                </button>
+            </mat-button-toggle-group>
+        </div>
+
+    </mat-sidenav-container>
+</div>

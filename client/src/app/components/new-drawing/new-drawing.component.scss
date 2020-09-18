@@ -1,0 +1,21 @@
+.button {
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 2em;
+    font-family: cursive;
+    border: black solid 3px;
+    background-color: white;
+    height: 75px;
+    width: 40%;
+    font-weight: bold;
+    margin-bottom: 50px;
+    display: block;
+    cursor: pointer;
+}
+
+.button:active {
+    width: 37%;
+    height: 70px;
+    margin-bottom: 55px;
+}

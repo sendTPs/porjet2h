@@ -1,0 +1,18 @@
+<div id="entry">
+    <br>
+    <br>
+    <div>
+        <h1>Bienvenue sur Polydessin</h1>
+    </div>
+    <div>
+        <app-new-drawing></app-new-drawing>
+
+        <button #b1 (click)="openGallery()" (mouseover)="onButton(b1);" (mouseout)="outButton(b1);"
+            class="button">Galerie Dessins</button>
+        <button #b2 (click)="openUserManual()" (mouseover)="onButton(b2);" (mouseout)="outButton(b2);"
+            class="button">Guide d'utilisation</button>
+        <button #b3 *ngIf='checkSketch()' (click)="continueDrawing()" (mouseover)="onButton(b3);"
+            (mouseout)="outButton(b3);" class="button"> Continuer
+            Dessin</button>
+    </div>
+</div>

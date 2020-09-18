@@ -1,0 +1,10 @@
+<span>Largeur bordure :</span>
+<button #button class="btnTools" (click)="grilleToggle()"
+    style='border-style: outset; background-color: darkgrey; border-radius: 10px;'>
+    <mat-icon>grid_on</mat-icon>
+</button>
+<input #slider (mousemove)="slideWidth()" step="5" class="mySlider" type="range" value={{width}} min="5" max="200" />
+<br>
+<input #number (change)="preciseWidth()" (blur)="checkValue()" (click)="disabledKeyboard()" step="5" class="myNumbers"
+    type="number" value={{width}} min="5" max="200" />
+<p>en pixel</p>

@@ -1,0 +1,74 @@
+#interface {
+  //box-sizing: border-box;
+  //position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  // font-weight: bold;
+  color: white;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+h1 {
+  margin: 10px;
+}
+
+#categoriesPart {
+  height: 800px;
+  width: 300px;
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+#descriptionPart {
+  height: 75%;
+  width: 850px;
+  background-color: white;
+  margin-left: 200px;
+}
+
+#information {
+  height: 100%;
+  width: 90%;
+  margin-left: 40px;
+  text-align: justify;
+}
+
+.item {
+  height: 50px;
+  background: black;
+  color: white;
+  font-weight: bold;
+}
+
+#expansionPanels {
+  overflow: hidden;
+  height: 100%;
+  width: 250px;
+  background: black;
+  color: white;
+  font-weight: bold;
+}
+
+#button {
+  margin-top: 10px;
+}
+
+#next {
+  margin-left: 25px;
+  margin-bottom: auto;
+}

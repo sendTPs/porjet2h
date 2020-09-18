@@ -1,0 +1,8 @@
+<span>Largeur bordure </span>
+
+<input #number (change)="preciseWidth()" (blur)="checkValue()" (click)="disabledKeyboard()" step="2" class="myNumbers"
+    type="number" value={{width}} min="0" max="60" />
+
+<input #slider (mousemove)="slideWidth()" step="2" class="mySlider" type="range" value={{width}} min="0" max="60" />
+
+<p>en pixel</p>

@@ -1,0 +1,11 @@
+<span>Nombre d'emissions</span>
+
+<input #number (blur)="checkValue()" (change)="updateNumber()" step="2" class="myNumbers" type="number"
+    value={{emissionsPerSecond}} min="0" max="100" />
+
+<p>(par seconde)</p>
+
+<input #slider (mouseleave)="checkValue()" (mousemove)="updateSilder()" step="2" class="mySlider" type="range"
+    value={{emissionsPerSecond}} min="0" max="100" />
+
+

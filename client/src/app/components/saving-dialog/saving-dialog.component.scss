@@ -1,0 +1,95 @@
+#savingDialogContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+form {
+    width: 100%;
+}
+
+.dialogTitle {
+    color: #EF6C00;
+}
+
+.tagDefinition {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.mat-button {
+    border: 1px darkslategray groove;
+    background-color: #FFB300;
+}
+
+.informationsTitle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+}
+
+.drawingNameDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100%;
+
+    input {
+        font-size: 14px;
+    }
+}
+
+.drawingTagsTitleAndButton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.tagsTitle {
+    flex: 3;
+}
+
+#addTagsButton {
+    flex: 1;
+}
+
+.drawingTagsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.chip-list {
+    width: 100%;
+}
+
+.savingDialogButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 4em;
+    align-content: flex-end;
+}
+
+.formDiagnostic {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}

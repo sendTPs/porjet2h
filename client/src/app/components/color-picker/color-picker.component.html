@@ -1,0 +1,98 @@
+<!-- color picker area-->
+<div class="color-wrapper">
+
+  <app-color-palette [hue]="hue" (color)="color = $event" (rColor)="rColor = $event" (bColor)="bColor = $event"
+    (gColor)="gColor = $event" (colorS)="secondColorChoice = $event" (colorP)="primeColorChoice = $event">
+  </app-color-palette>
+
+  <app-color-slider (color)="hue = $event" style="margin-left:16px">
+  </app-color-slider>
+</div>
+
+
+<!-- color picker description area-->
+
+<div class="input-wrapper">
+
+  <!-- R component of RGB color-->
+  <span class="text">R:</span>
+  <input id="composanteR" value={{rColor}} (keyup)="rReadColor($event)" (keydown)="rReadColor($event)"
+    (change)="rReadColor($event)" type="text" min="0" max="255" class="input-text" />
+
+  <!-- G component of RGB color-->
+  <span class="text">G:</span>
+  <input id="composanteG" value={{gColor}} (keyup)="gReadColor($event)" (keydown)="gReadColor($event)"
+    (change)="gReadColor($event)" type="text" min="0" max="255" class="input-text" />
+
+  <!-- B component of RGB color-->
+  <span class="text">B:</span>
+  <input id="composanteB" value={{bColor}} (keyup)="bReadColor($event)" (keydown)="bReadColor($event)"
+    (change)="bReadColor($event)" type="text" min="0" max="255" class="input-text" />
+
+
+  <div class="color-div" [ngStyle]="{'background-color': color || 'white'}"></div>
+</div>
+
+<!-- color prime and second area-->
+<div class="input-wrapper" *ngIf="colorChooserOnly">
+  <div class='opacityTitle'>Transparence Primary:</div>
+  <div class="mat-slider">
+    <mat-slider min="0" max="1" step="0.01" value="1" (input)="onSliderChange($event, 1)" thumbLabel></mat-slider>
+  </div>
+</div>
+<div class="input-wrapper" *ngIf="colorChooserOnly">
+  <div class='opacityTitle'>Transparence Secondary:</div>
+  <div class="mat-slider">
+    <mat-slider min="0" max="1" step="0.01" value="1" (input)="onSliderChange($event, 2)" thumbLabel></mat-slider>
+  </div>
+</div>
+<!-- color show -->
+<div class='color-show' *ngIf="colorChooserOnly">
+  <div class="color-div-choice" [ngStyle]="{'background-color': primeColorChoice || 'white'}"></div>
+  <div *ngIf="colorChooserOnly"><button (click)="switchPrimeAndSecondColor()" class="btn-color"> Inverser &#60;
+      &#62;</button></div>
+  <div class="color-div-choice" [ngStyle]="{'background-color': secondColorChoice || 'white'}"></div>
+</div>
+
+<!-- apply -->
+<div class='color-show' *ngIf="colorChooserOnly">
+  <button (click)="confirmColor(null)" class="btn-color">Choisir comme Primaire</button>
+  <button (click)="secondColor()" class="btn-color">Choisir comme Secondaire</button>
+</div>
+
+
+
+
+<!-- used colors area-->
+<div class="input-wrapper" *ngIf="colorChooserOnly">
+  <span class="text">Couleurs: </span>
+  <div (contextmenu)="onRightClickForUsedColor($event, 0)" (click)="onLeftClickForUsedColor(0)" class="color-div-used"
+    [ngStyle]="{'background-color': usedColorList[0] || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 1)" (click)="onLeftClickForUsedColor(1)"
+    [ngStyle]="{'background-color': usedColorList[1]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 2)" (click)="onLeftClickForUsedColor(2)"
+    [ngStyle]="{'background-color': usedColorList[2]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 3)" (click)="onLeftClickForUsedColor(3)"
+    [ngStyle]="{'background-color': usedColorList[3]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 4)" (click)="onLeftClickForUsedColor(4)"
+    [ngStyle]="{'background-color': usedColorList[4]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 5)" (click)="onLeftClickForUsedColor(5)"
+    [ngStyle]="{'background-color': usedColorList[5]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 6)" (click)="onLeftClickForUsedColor(6)"
+    [ngStyle]="{'background-color': usedColorList[6]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 7)" (click)="onLeftClickForUsedColor(7)"
+    [ngStyle]="{'background-color': usedColorList[7]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 8)" (click)="onLeftClickForUsedColor(8)"
+    [ngStyle]="{'background-color': usedColorList[8]  || 'white'}"></div>
+
+  <div class="color-div-used" (contextmenu)="onRightClickForUsedColor($event, 9)" (click)="onLeftClickForUsedColor(9)"
+    [ngStyle]="{'background-color': usedColorList[9]  || 'white'}"></div>
+</div>

@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+}
+
+body{
+    margin: 0px;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+.toolMarkSelected {
+    opacity: 50%;
+}
+
+.zIndex {
+  z-index: 10000;
+}
+
+.eraserIndicatorLine {
+  stroke: red;
+}
+.eraserIndicatorShape {
+  stroke: red;
+}
+.darkerRedLine {
+  stroke: rgb(177, 0, 0);
+}
+.darkerRedShape {
+  stroke: rgb(177, 0, 0);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Imposed to change styles of mat materiel in the root scss file */
+
+  //change the height of mat slider
+  .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background-color: white;
+  }
+
+  .mat-slider.mat-slider-horizontal .mat-slider-thumb {
+    background-color: white;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #bbb;
+  box-shadow: inset 0px 0px 10px #555;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  box-shadow: outset 0 0 10px black;
+  background: rgb(255, 127, 0);
+  border-radius: 20px;
+  width: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 20px;
+  background: #dc5e00;
+}

@@ -1,0 +1,52 @@
+<h2 id="title">Gallerie de dessins</h2>
+<div class="container">
+    <div class="filter">
+        <div class="selectOptions">
+            <mat-form-field>
+
+                <mat-label>Étiquettes (Tags) </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let tag of tags; index as i;" (click)='addFilters(i)' value="{{tag}}">
+                        {{tag.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button id="reset" (click)='resetFilters()'>Reinitialiser les étiquettes </button>
+        </div>
+        <h4>Étiquettes séléctionnées:</h4>
+        <li class="tags">
+            <span id="filtersSelected" *ngFor="let item of tagsSelected">{{ item.name }} </span>
+        </li>
+        <!-- <button id="reset" (click)='resetFilters()'>Reinitialiser les étiquettes </button> -->
+
+    </div>
+    <h4 id="serverDrawings">Dessins sauvegardes sur le serveur :</h4>
+    <li class="drawings draggable" cdkDropList #drawingsList="cdkDropList" [cdkDropListData]="this.displayedDrawings"
+        [cdkDropListConnectedTo]="[firstList, secondList]">
+        <div #drawing id="displayedDrawings" *ngFor="let item of displayedDrawings" cdkDrag>
+            {{ item.name }}
+            <div id="drawingsTagsTitle" *ngIf="item.tags.length>0">tag(s):
+                <div id="drawingsTags" *ngFor="let tag of item.tags">
+                    {{tag}}
+                </div>
+            </div>
+
+
+        </div>
+    </li>
+
+
+    <div class="buttons dropper" cdkDropList>
+        <button #delete class="button1 dropper" cdkDropList (click)='deleteDrawing()' #firstList="cdkDropList"
+            [cdkDropListConnectedTo]="drawingsList" (cdkDropListDropped)="drop($event,'delete')">Supprimer
+            <div *ngIf="!this.dropForDelete"> (Aucun dessin déposé, pour le moment) </div>
+            <div class="drawingToUse" *ngIf="this.dropForDelete"> {{ this.drawingToUse.name}}</div>
+        </button>
+        <button class="button2" cdkDropList (click)='loadDrawing()' #secondList="cdkDropList"
+            [cdkDropListConnectedTo]="drawingsList" (cdkDropListDropped)=" drop($event,'load')">Charger
+            le dessin
+            <div *ngIf="!this.dropForLoad"> (Aucun dessin déposé, pour le moment) </div>
+            <div class="drawingToUse" *ngIf="this.dropForLoad"> {{ this.drawingToUse.name}}</div>
+        </button>
+    </div>
+</div>

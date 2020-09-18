@@ -1,0 +1,16 @@
+<body oncontextmenu="return false">
+    <div #workspace class="workspace" [style.background-color]="this.newOption()" [style.height.px]="this.height"
+        [style.width.px]="this.width">
+
+        <svg #wsSVG [style.height.px]="this.height" [style.background-color]="this.backgroundColor"
+            [style.width.px]="this.width" class="wsSVGClass" fill="url(#grid)" (dblclick)="dblClick($event)"
+            (mouseenter)="mouseEnter($event)" (mousedown)="mouseDown($event)" (mouseleave)="mouseLeave($event)"
+            (mousemove)="mouseMove($event)" (mouseup)="mouseUp($event)">
+            <g app-filter></g>
+
+        </svg>
+        <img #image class="img">
+        <canvas #canvas class="canvas" height={{this.height}} width={{this.width}}></canvas>
+
+    </div>
+</body>

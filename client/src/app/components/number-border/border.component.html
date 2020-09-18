@@ -1,0 +1,5 @@
+<span>Nombre de cotés</span>
+<input #number (change)="preciseWidth()" (blur)="checkValue()" (click)="disabledKeyboard()" step="1" class="myNumbers"
+    type="number" value={{border}} min="3" max="12" />
+<input #slider (mousemove)="slideWidth()" step="1" class="mySlider" type="range" value={{border}} min="3" max="12" />
+<p>en pixel</p>

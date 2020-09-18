@@ -1,0 +1,7 @@
+<span>Opacité:</span>
+<input #slider (mousemove)="slideWidth()" step="1" class="mySlider" type="range" [attr.value]='this.opacity' min="10"
+    max="99" />
+<br>
+<input #number (change)="preciseWidth()" (blur)="checkValue()" (click)="disabledKeyboard()" step="0.1" class="myNumbers"
+    type="number" [attr.value]='this.opacity' min="10" max="99" />
+<p>%</p>
